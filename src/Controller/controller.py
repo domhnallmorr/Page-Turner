@@ -14,3 +14,9 @@ class Controller:
 		root_id = self.model.add_new_root_tab()
 
 		self.view.root_notebook.add_new_tab(root_id, default_text)
+
+	def add_new_branch_tab(self, root_id):
+		branch_id = self.model.add_new_branch_tab(root_id)
+
+		self.view.root_notebook.root_tabs[root_id].add_new_branch_tab(branch_id)
+

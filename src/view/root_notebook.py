@@ -12,7 +12,7 @@ class RootNoteBook(QTabWidget):
 		
 
 	def add_new_tab(self, root_id, default_text):
-		self.root_tabs[root_id] = root_tab.RootTab(root_id)
+		self.root_tabs[root_id] = root_tab.RootTab(root_id, self.view)
 		self.addTab(self.root_tabs[root_id], default_text)
 
 	def contextMenuEvent(self, e):

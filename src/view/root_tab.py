@@ -1,10 +1,13 @@
 from PyQt6.QtWidgets import QLabel, QTabWidget, QWidget, QVBoxLayout, QMenu
+from view import branch_tab
 
 class RootTab(QWidget):
-	def __init__(self, root_id):
+	def __init__(self, root_id, view):
 		super().__init__()
 		self.root_id = root_id
+		self.view = view
 
+		self.branch_tabs = {}
 		self.setup_widgets()
 		self.setup_layouts()
 
@@ -33,7 +36,14 @@ class RootTab(QWidget):
 
 	def contextMenuEvent(self, e):
 		context = QMenu(self)
-		new_root_tab_action = context.addAction("New Branch Tab")
-		# new_root_tab_action.triggered.connect(self.new_tab_action)
+		new_branch_tab_action = context.addAction("New Branch Tab")
+		new_branch_tab_action.triggered.connect(self.new_tab_action)
 
 		context.exec(e.globalPos())
+
+	def new_tab_action(self):
+		self.view.controller.add_new_branch_tab(self.root_id)
+
+	def add_new_branch_tab(self, branch_id):
+		self.branch_tabs[branch_id] = branch_tab.BranchTab()
+		self.notebook.addTab(self.branch_tabs[branch_id], 'Branch Tab')
