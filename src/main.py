@@ -1,4 +1,5 @@
 import sys
+from PyQt6 import QtCore
 from PyQt6.QtWidgets import QApplication, QMainWindow
 
 from controller import controller
@@ -12,7 +13,6 @@ class App(QMainWindow):
 		self.top = 100
 		self.width = 640
 		self.height = 480
-		
         
 		self.controller = controller.Controller(self)
 		self.initUI()
@@ -24,7 +24,8 @@ class App(QMainWindow):
 		
 
 if __name__ == '__main__':
-    app = QApplication(sys.argv)
-    ex = App()
-    sys.exit(app.exec())
+	app = QApplication(sys.argv)
+
+	ex = App()
+	sys.exit(app.exec())
 
