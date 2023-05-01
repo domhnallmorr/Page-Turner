@@ -15,8 +15,26 @@ class Controller:
 
 		self.view.root_notebook.add_new_tab(root_id, default_text)
 
+		# Add Default branch tab
+		self.add_new_branch_tab(root_id)
+
 	def add_new_branch_tab(self, root_id):
 		branch_id = self.model.add_new_branch_tab(root_id)
 
 		self.view.root_notebook.root_tabs[root_id].add_new_branch_tab(branch_id)
 
+	def rename_root_tab(self, root_id):
+		default_text = self.model.root_tabs[root_id]["text"]
+		text, ok = self.view.get_user_text("Rename Root Tab", default_text)
+
+		if ok:
+			self.model.root_tabs[root_id]["text"] = text
+			self.view.root_notebook.rename_root_tab(root_id, text)
+
+	def rename_branch_tab(self, root_id, branch_id):
+		default_text = self.model.branch_tabs[branch_id].text
+		text, ok = self.view.get_user_text("Rename Branch Tab", default_text)
+
+		if ok:
+			self.model.branch_tabs[branch_id].text = text
+			self.view.root_notebook.root_tabs[root_id].rename_branch_tab(text)
