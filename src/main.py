@@ -7,7 +7,7 @@ from controller import controller
 class App(QMainWindow):
 	def __init__(self):
 		super().__init__()
-		self.version = "0.0.3"
+		self.version = "0.1.0"
 		self.title = f"Page Turner {self.version}"
 		self.left = 100
 		self.top = 100

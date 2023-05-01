@@ -20,13 +20,13 @@ class View:
 
         # create a tree view and add it to the layout
 		tree_view = QTreeView()
-		layout.addWidget(tree_view)
+		# layout.addWidget(tree_view)
 
         # create a tab widget and add it to the layout
 		# self.tab_widget = QTabWidget()
 		layout.addWidget(self.root_notebook)
 
-		layout.setStretchFactor(tree_view, 2)
+		# layout.setStretchFactor(tree_view, 2)
 		layout.setStretchFactor(self.root_notebook, 8)
 
 		# create a widget to hold the content of the new tab
@@ -40,9 +40,6 @@ class View:
 		# set the layout of the tab content widget to the tab content layout
 		tab_content_widget.setLayout(tab_content_layout)
 
-		# add the tab content widget to the tab widget
-		# self.root_notebook.addTab(tab_content_widget, 'Tab 1')
-
 		# create a central widget to hold the main layout
 		central_widget = QWidget()
 
@@ -52,20 +49,6 @@ class View:
 		# set the central widget of the main window to the central widget
 		self.mainapp.setCentralWidget(central_widget)
 
-	# def add_new_branch_tab(self):
-	# 	# create a widget to hold the content of the new tab
-	# 	tab_content_widget = branch_tab.BranchTab()
-
-	# 	# create a label to add to the new tab
-	# 	label = QLabel('Important Content')
-	# 	tab_content_layout = QVBoxLayout()
-	# 	tab_content_layout.addWidget(label)
-
-	# 	# set the layout of the tab content widget to the tab content layout
-	# 	tab_content_widget.setLayout(tab_content_layout)
-
-	# 	# add the tab content widget to the tab widget
-	# 	self.tab_widget.addTab(tab_content_widget, 'New Tab')
 
 	def get_user_text(self, title, default_text):
 		text, ok = QInputDialog.getText(self.mainapp, title, "Enter some text:", text=default_text)
