@@ -10,9 +10,13 @@ The main purpose of this layout is to allow specific pdfs to be grouped together
 ## Features
 - Add root and branch tabs
 - Rename root and branch tabs
-- Load pdf to 
+- Delete tabs
+- Load and view pdf 
 
 ## Planned Features
-- Delete root and branch tabs
 - Load last session feature
 - Quick Access Treeview with links to pdf documents
+- Search functionality
+
+## Preview
+![alt text](https://imgur.com/ryNuFyK.JPG)

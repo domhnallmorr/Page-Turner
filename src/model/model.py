@@ -42,6 +42,11 @@ class Model:
 		
 		return branch_id
 
+	def delete_root_tab(self, root_id):
+		self.root_tabs.pop(root_id)
+
+	def delete_branch_tab(self, root_id, branch_id):
+		self.root_tabs[root_id]["branch_tabs"].pop(branch_id)
 
 class BranchTab:
 	def __init__(self, branch_id, text):

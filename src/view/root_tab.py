@@ -50,6 +50,8 @@ class RootTab(QWidget):
 		edit_branch_tab_action = context.addAction("Rename Branch Tab")
 		edit_branch_tab_action.triggered.connect(self.rename_tab_action)
 		
+		delete_branch_tab_action = context.addAction("Delete Branch Tab")
+		delete_branch_tab_action.triggered.connect(self.delete_tab_action)
 
 		context.exec(self.notebook.mapToGlobal(pos))
 
@@ -63,5 +65,11 @@ class RootTab(QWidget):
 	def rename_tab_action(self):
 		self.view.controller.rename_branch_tab(self.root_id, self.branch_id_selected)
 
+	def delete_tab_action(self):
+		self.view.controller.delete_branch_tab(self.root_id, self.branch_id_selected, self.tab_index)
+
 	def rename_branch_tab(self, text):
 		self.notebook.setTabText(self.tab_index, text)
+
+	def delete_branch_tab(self, tab_index):
+		self.notebook.removeTab(tab_index)

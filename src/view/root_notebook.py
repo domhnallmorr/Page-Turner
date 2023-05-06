@@ -29,6 +29,9 @@ class RootNoteBook(QTabWidget):
 		edit_branch_tab_action = context.addAction("Rename Root Tab")
 		edit_branch_tab_action.triggered.connect(self.rename_tab_action)
 
+		delete_branch_tab_action = context.addAction("Delete Root Tab")
+		delete_branch_tab_action.triggered.connect(self.delete_tab_action)
+
 		context.exec(self.mapToGlobal(pos))
 
 	def new_tab_action(self):
@@ -37,6 +40,12 @@ class RootNoteBook(QTabWidget):
 	def rename_tab_action(self):
 		self.view.controller.rename_root_tab(self.root_id_selected)
 
+	def delete_tab_action(self):
+		self.view.controller.delete_root_tab(self.root_id_selected, self.tab_index)
+		
 	def rename_root_tab(self, root_id, text):
 		self.setTabText(self.tab_index, text)
+
+	def delete_root_tab(self, tab_index):
+		self.removeTab(tab_index)
 
