@@ -19,4 +19,4 @@ The main purpose of this layout is to allow specific pdfs to be grouped together
 - Search functionality
 
 ## Preview
-![alt text](https://imgur.com/ryNuFyK.JPG)
+![alt text](https://imgur.com/ryNuFyK.jpg)
