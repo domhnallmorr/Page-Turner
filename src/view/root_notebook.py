@@ -46,6 +46,7 @@ class RootNoteBook(QTabWidget):
 	def rename_root_tab(self, root_id, text):
 		self.setTabText(self.tab_index, text)
 
-	def delete_root_tab(self, tab_index):
+	def delete_root_tab(self, root_id, tab_index):
 		self.removeTab(tab_index)
+		self.root_tabs.pop(root_id)
 

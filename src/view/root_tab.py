@@ -58,9 +58,9 @@ class RootTab(QWidget):
 	def new_tab_action(self):
 		self.view.controller.add_new_branch_tab(self.root_id)
 
-	def add_new_branch_tab(self, branch_id):
-		self.branch_tabs[branch_id] = branch_tab.BranchTab()
-		self.notebook.addTab(self.branch_tabs[branch_id], 'Branch Tab')
+	def add_new_branch_tab(self, branch_id, default_text, default_pdf):
+		self.branch_tabs[branch_id] = branch_tab.BranchTab(self.root_id, self.view, branch_id, default_pdf)
+		self.notebook.addTab(self.branch_tabs[branch_id], default_text)
 
 	def rename_tab_action(self):
 		self.view.controller.rename_branch_tab(self.root_id, self.branch_id_selected)
@@ -71,5 +71,6 @@ class RootTab(QWidget):
 	def rename_branch_tab(self, text):
 		self.notebook.setTabText(self.tab_index, text)
 
-	def delete_branch_tab(self, tab_index):
+	def delete_branch_tab(self, branch_id, tab_index):
 		self.notebook.removeTab(tab_index)
+		self.branch_tabs.pop(branch_id)
